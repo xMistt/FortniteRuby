@@ -9,8 +9,8 @@ Example:
 ```ruby
 require 'fortniteruby'
 
-FortniteClient.new('email@email.com', 'password')
+client FortniteClient.new('email@email.com', 'password')
 
-puts FortniteClient.displayName
+puts client.displayName
 => FortniteAccount123
 ```
