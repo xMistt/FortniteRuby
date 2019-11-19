@@ -8,5 +8,6 @@ Example:
 require 'fortniteruby'
 
 FortniteClient.new('email@email.com', 'password')
+
 puts FortniteClient.displayName
-=> 'EpicDisplayName'```
+=> FortniteAccount123```
