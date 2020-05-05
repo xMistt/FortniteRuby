@@ -1,9 +1,25 @@
 require 'httparty'
 
+FortniteUser = Struct.new(
+    :display_name,
+    :id,
+    :external_auths
+)
+
 class FortniteClient
+    def initialize(exchange_code=nil)
+        if exchange_code # Prompts an input for the exchange code if none is provided.
+            @_exchange_code = exchange_code
+        else
+            puts 'Please enter an exchange code:'
+            @_exchange_code = gets.chomp
+        end
+
+    end
+
     def authenticate()
         # Function to authenticate with the Epic Games API through exchange code.
-        login = HTTParty.post(
+        request = HTTParty.post(
             "https://account-public-service-prod.ol.epicgames.com/account/api/oauth/token",
             :headers => {
                 "Content-Type" => "application/x-www-form-urlencoded",
@@ -16,17 +32,32 @@ class FortniteClient
             # :debug_output => $stdout
         )
 
-        @display_name = JSON.parse(login.body)['displayName']
-        @access_token = JSON.parse(login.body)['access_token']
-    end
+        response = JSON.parse(request.body)
 
-    def initialize(exchange_code=nil)
-        if exchange_code == nil # Prompts an input for the exchange code if none is provided.
-            puts 'Please enter an exchange code:'
-            exchange_code = gets.chomp
+        if request.code == 400
+            raise "#{response['errorCode']} - #{response['errorMessage']}"
         end
 
-        @_exchange_code = exchange_code
+        @display_name = response['displayName']
+        @access_token = response['access_token']
+    end
+
+    def fetch_account(name)
+        # Fetch account information and returns a FortniteUser object.
+        request = HTTParty.get(
+            "https://account-public-service-prod03.ol.epicgames.com/account/api/public/account/displayName/#{name}",
+            :headers => {
+                "Authorization" => "bearer #{@access_token}"
+            })
+        
+
+        response = JSON.parse(request.body)
+        
+        FortniteUser.new(
+            response['displayName'],
+            response['id'],
+            response['externalAuths']
+        )
     end
 
     # Private attributes (not intended to be used outside of the object itself).
