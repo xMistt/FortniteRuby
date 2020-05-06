@@ -2,8 +2,8 @@
 <h2> Gem for interacting with Fortnite/Epic Games API.</h2><br>
 <a href="https://rubygems.org/gems/fortniteruby><img src="https://img.shields.io/gem/dt/fortniteruby"></img></a>
 
-[![Downloads](https://img.shields.io/gem/dt/fortniteruby)](https://pepy.tech/project/benbotasync)
-[![Version](https://img.shields.io/gem/v/fortniteruby)](https://pepy.tech/project/benbotasync)
+[![Downloads](https://img.shields.io/gem/dt/fortniteruby)](https://rubygems.org/gems/fortniteruby)
+[![Version](https://img.shields.io/gem/v/fortniteruby)](https://rubygems.org/gems/fortniteruby)
 [![Last Commit](https://img.shields.io/github/last-commit/xmistt/fortniteruby)](https://github.com/xMistt/FortniteRuby)
 
 
