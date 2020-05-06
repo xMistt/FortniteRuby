@@ -2,10 +2,18 @@
 <h2> Gem for interacting with Fortnite/Epic Games API.</h2><br>
 <a href="https://rubygems.org/gems/fortniteruby><img src="https://img.shields.io/gem/dt/fortniteruby"></img></a>
 
-Installing:<br>
+[![Downloads](https://img.shields.io/gem/dt/fortniteruby)](https://pepy.tech/project/benbotasync)
+[![Version](https://img.shields.io/gem/v/fortniteruby)](https://pepy.tech/project/benbotasync)
+[![Last Commit](https://img.shields.io/github/last-commit/xmistt/fortniteruby)](https://github.com/xMistt/FortniteRuby)
+
+
+
+## Installing:
 ```gem install fortniteruby```
 
-Example:
+After installing, you can check out the documentation for FortniteRuby [here](https://github.com/xMistt/FortniteRuby/wiki).
+____
+## Example:
 ```ruby
 require 'fortniteruby'
 
@@ -20,3 +28,4 @@ client.authenticate()
 puts client.displayName
 => FortniteAccount123
 ```
+____
