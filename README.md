@@ -20,9 +20,9 @@ require 'fortniteruby'
 # An exchange code is a one-time code that can be used to generate an access token.
 # It is a much better solution than email & password due to captcha restricting automation.
 
-# You can get one from: https://www.epicgames.com/id/logout?lang=en-US&redirectUrl=https%3A//www.epicgames.com/id/login%3FredirectUrl%3Dhttps%253A%252F%252Fwww.epicgames.com%252Fid%252Fapi%252Fexchange&lang=en-US
+# You can get one from: https://www.epicgames.com/id/logout?redirectUrl=https%3A//www.epicgames.com/id/login%3FredirectUrl%3Dhttps%253A%252F%252Fwww.epicgames.com%252Fid%252Fapi%252Fredirect%253FclientId%253D3446cd72694c4a4485d81b77adbb2141%2526responseType%253Dcode
 
-client = FortniteClient.new(exchange_code="cade611bedc14c8dab0c68bcf4d5d692")
+client = FortniteClient.new(authorization_code="cade611bedc14c8dab0c68bcf4d5d692")
 client.authenticate()
 
 puts client.displayName
