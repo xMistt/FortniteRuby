@@ -7,12 +7,12 @@ FortniteUser = Struct.new(
 )
 
 class FortniteClient
-    def initialize(exchange_code=nil)
-        if exchange_code # Prompts an input for the exchange code if none is provided.
-            @_exchange_code = exchange_code
+    def initialize(authorization_code=nil)
+        if authorization_code # Prompts an input for the exchange code if none is provided.
+            @_authorization_code = authorization_code
         else
             puts 'Please enter an exchange code:'
-            @_exchange_code = gets.chomp
+            @_authorization_code = gets.chomp
         end
 
     end
@@ -26,8 +26,8 @@ class FortniteClient
                 "Authorization" => "basic ZWM2ODRiOGM2ODdmNDc5ZmFkZWEzY2IyYWQ4M2Y1YzY6ZTFmMzFjMjExZjI4NDEzMTg2MjYyZDM3YTEzZmM4NGQ="
             },
             :body => {
-                "grant_type" => "exchange_code",
-                "exchange_code" => @_exchange_code
+                "grant_type" => "authorization_code",
+                "exchange_code" => @_authorization_code
             },
             # :debug_output => $stdout
         )
@@ -61,7 +61,7 @@ class FortniteClient
     end
 
     # Private attributes (not intended to be used outside of the object itself).
-    attr_accessor :_exchange_code
+    attr_accessor :_authorization_code
 
     # Public attributes.
     attr_accessor :display_name
